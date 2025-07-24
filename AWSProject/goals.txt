@@ -1,0 +1,46 @@
+1. IAM
+    계정 생성, 삭제
+    권한 부여
+    액세스 키페어
+
+2. S3
+    버킷 생성 삭제
+    객체 업,다운로드
+    정적 네트워크 생성
+
+3. EC2
+    EBS
+    KeyPair 설정
+    서버 호스팅 
+    Userdata사용 -> 동적 홈페이지 구축
+    Auto Scaling
+    ELB (Elastic Load Balancing)
+    Connect with S3
+
+4. RDS (Relational Database Service)
+    Connect with EC2
+    Bastion (Subnet 두개를 이용하여 데이터와 Instance를 분리)
+    읽기-쓰기 데이터베이스 분리 
+
+5. Aurora
+    Connect with MySQL
+    읽기-쓰기 데이터베이스 분리 
+    Connect with EC2
+    Serverless
+    쉬운 확장기능
+
+6. Details
+    보안그룹
+    PuTTy (SSH for window)
+    Cloud Front (DNS)
+    Cloud Watch
+    SNS (Simple Notification Service)
+    DynamoDB
+    조작법
+
+==========
+oz코딩스쿨
+소플의 처음만난 AWS
+https://kkjjww1102.tistory.com/3
+https://kkjjww1102.tistory.com/4
+=========

@@ -1,0 +1,27 @@
+✅ 1. 파일/디렉토리 관련
+
+| 명령어     | 설명                | 예시                            |
+| ------- | --------------       | ------------------------------ |
+| `ls`    | 디렉토리 목록 보기      | `ls -al`                       |
+| `cd`    | 디렉토리 이동          | `cd /home/user`                |
+| `pwd`   | 현재 경로 출력         | `pwd`                          |
+| `mkdir` | 새 디렉토리 생성        | `mkdir new_folder`             |
+| `touch` | 빈 파일 생성           | `touch file.txt`               |
+| `rm`    | 파일/폴더 삭제          | `rm file.txt` / `rm -r folder` |
+| `cp`    | 파일 복사              | `cp a.txt b.txt`               |
+| `mv`    | 파일 이동 또는 이름 변경 | `mv old.txt new.txt`           |
+
+✅ 2. 파일 내용 보기/편집
+
+| 명령어          | 설명                 | 예시                            |
+| -------------- | ---------------     | ------------------------------- |
+| `cat`          | 파일 내용 출력        | `cat file.txt`                  |
+| `more`, `less` | 파일 내용을 한 화면씩 보기 | `less file.txt`              |
+| `head`         | 처음 몇 줄 보기       | `head -n 10 file.txt`           |
+| `tail`         | 마지막 몇 줄 보기      | `tail -n 20 log.txt`            |
+| `nano`, `vim`  | 파일 편집기 실행       | `nano file.txt`, `vim file.txt` |
+
+=========
+oz코딩스쿨
+ChatGPT
+=========

@@ -1,0 +1,27 @@
+1. HTML (HyperText Markup Language)
+    웹 페이지의 구조(뼈대)를 만드는 언어
+
+🔹 역할
+    제목, 문단, 표, 이미지, 버튼 등 콘텐츠의 구조를 정의
+    <h1>, <p>, <img>, <button>, <div> 등 **태그(tag)**로 구성
+
+
+2. CSS (Cascading Style Sheets)
+    HTML 요소의 디자인(스타일)을 담당하는 언어
+
+🔹 역할
+    글자 크기, 색상, 정렬, 여백, 배경, 레이아웃 등 시각적 요소 설정
+    HTML과는 분리되어 디자인만 관리 가능
+
+
+3. JavaScript (JS)
+    웹 페이지에 동적인 기능(인터랙션)을 추가하는 언어
+
+🔹 역할
+    버튼 클릭, 입력값 처리, 애니메이션, 서버 통신 등 기능과 로직 구현
+    HTML 요소와 직접 상호작용 가능
+
+=========
+oz코딩스쿨
+https://medium.com/depayse/html-css-%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83-%EA%B5%AC%EC%84%B1%ED%95%98%EA%B8%B0-7d7a839f4880
+=========

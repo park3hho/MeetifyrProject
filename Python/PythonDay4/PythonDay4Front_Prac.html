@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>버튼 세 개 페이지</title>
+    <style>
+        body {
+        font-family: sans-serif;
+        background-color: #f4f4f4;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+    h1 {
+        margin-bottom: 30px;
+    }
+
+    .button-container {
+        display: flex;
+        gap: 20px;
+    }
+
+    button {
+        padding: 10px 20px;
+        font-size: 16px;
+        border: none;
+        border-radius: 12px;
+        cursor: pointer;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+        transition: background-color 0.2s;
+    }
+
+    .btn1 { background-color: #3498db; color: white; }
+    .btn1:hover { background-color: #2980b9; }
+
+    .btn2 { background-color: #2ecc71; color: white; }
+    .btn2:hover { background-color: #27ae60; }
+
+    .btn3 { background-color: #e74c3c; color: white; }
+    .btn3:hover { background-color: #c0392b; }
+    </style>
+</head>
+<body>
+
+    <h1>버튼 세 개 페이지</h1>
+
+    <div class="button-container">
+    <button class="btn1" onclick="handleClick(1)">버튼 1</button>
+
+    <button class="btn2" onclick="handleClick(2)">버튼 2</button>
+    
+    <button class="btn3" onclick="handleClick(3)">버튼 3</button>
+    </div>
+
+<script>    
+function handleClick(buttonNumber) {
+        alert(`버튼 ${buttonNumber} 클릭됨`);
+    }
+</script>
+
+</body>
+</html>

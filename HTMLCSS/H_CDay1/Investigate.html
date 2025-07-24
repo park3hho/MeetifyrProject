@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>자기소개 & 설문조사</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #eef1f5;
+        padding: 40px;
+    }
+    .container {
+        max-width: 600px;
+        margin: auto;
+        background-color: #fff;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h1, h2 {
+        color: #333;
+    }
+    label {
+        display: block;
+        margin-top: 15px;
+        font-weight: bold;
+    }
+    input[type="text"], input[type="email"], select, textarea {
+        width: 95%;
+        padding: 7px;
+        margin-top: 5px;
+        border-radius: 12px;
+        border: 1px solid #ccc;
+    }
+    button {
+        margin-top: 20px;
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+    }
+    button:hover {
+        background-color: #45a049;
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+        <h1>안녕하세요! 👋</h1>
+        <p>저는 박찬호입니다. 웹 개발을 좋아하고, 사람들과 소통하는 걸 즐깁니다.</p>
+
+        <h2>간단한 설문조사</h2>
+    <form action="#" method="post">
+        <label for="name">이름</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">이메일</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="interest">관심 있는 분야</label>
+        <select id="interest" name="interest">
+            <option value="frontend">프론트엔드</option>
+            <option value="backend">백엔드</option>
+            <option value="fullstack">풀스택</option>
+            <option value="design">UI/UX 디자인</option>
+        </select>
+
+        <label for="feedback">하고 싶은 말</label>
+        <textarea id="feedback" name="feedback" rows="4" placeholder="의견을 자유롭게 적어주세요 :)"></textarea>
+
+        <button type="submit">제출하기</button>
+    </form>
+    </div>
+</body>
+</html>

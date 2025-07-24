@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "oz-django"
+version = "0.1.0"
+description = ""
+authors = ["park2do <ejfhr7777@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+django = "^5.2.3"
+djangorestframework = "^3.16.0"
+djangorestframework-simplejwt = "^5.5.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+# 말이 끊겨요 엡 비와서 그런가 어떤거요

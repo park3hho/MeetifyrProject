@@ -1,0 +1,20 @@
+프론트엔드: 
+    Express + Node.js
+미들웨어: 
+    Express + Node.js
+데이터베이스: 
+    MySQL
+
+목표: MySQL 내의 데이터 불러오기 
+
+기본 명령어
+    npm init    -- 	Node.js로 파일 실행
+    npm init -y    -- 	package.json 생성(프로젝트 초기화)
+    node [파일명]    -- 		패키지 설치
+    npm install -g [패키지명]    -- 	글로벌 패키지 설치
+    npm start    -- 	package.json에 정의된 start 스크립트 실행
+
+
+======
+독학
+======

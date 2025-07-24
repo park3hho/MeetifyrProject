@@ -1,0 +1,63 @@
+//1
+def find_fantasy_books():
+    client = MongoClient('mongodb://localhost:27017/')
+    db = client.local
+    result = db.books.find({"genre": "fantasy"}, {"_id": 0, "title": 1, "author": 1})
+    for book in result:
+        print(book)
+    client.close()
+//2
+def average_rating_by_director():
+    client = MongoClient('mongodb://localhost:27017/')
+    db = client.local
+    pipeline = [
+        {"$group": {
+            "_id": "$director",
+            "average_rating": {"$avg": "$rating"}
+        }},
+        {"$sort": {"average_rating": -1}}
+    ]
+    result = db.movies.aggregate(pipeline)
+    for director in result:
+        print(director)
+    client.close()
+//3
+def recent_actions_by_user(user_id=1):
+    client = MongoClient('mongodb://localhost:27017/')
+    db = client.local
+    result = db.user_actions.find(
+        {"user_id": user_id},
+        {"_id": 0}
+    ).sort("timestamp", -1).limit(5)
+    for action in result:
+        print(action)
+    client.close()
+//4
+def book_count_by_year():
+    client = MongoClient('mongodb://localhost:27017/')
+    db = client.local
+    pipeline = [
+        {"$group": {
+            "_id": "$year",
+            "count": {"$sum": 1}
+        }},
+        {"$sort": {"count": -1}}
+    ]
+    result = db.books.aggregate(pipeline)
+    for year in result:
+        print(year)
+    client.close()
+//5
+def update_old_views_to_seen(user_id=1, before_date="2023-04-10T00:00:00Z"):
+    client = MongoClient('mongodb://localhost:27017/')
+    db = client.local
+    result = db.user_actions.update_many(
+        {
+            "user_id": user_id,
+            "action": "view",
+            "timestamp": {"$lt": before_date}
+        },
+        {"$set": {"action": "seen"}}
+    )
+    print(f"Updated {result.modified_count} documents.")
+    client.close()

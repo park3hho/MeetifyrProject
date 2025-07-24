@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<h1>상품 목록</h1>
+    <div>
+        <label for="category-select">카테고리 선택:</label>
+        <select id="category-select">
+            <option value="all">전체</option>
+            <option value="top">상의</option>
+            <option value="bottom">하의</option>
+            <option value="shoes">신발</option>
+            <option value="etc">패션잡화</option>
+        </select>
+
+        <input type="text" id="search-input" placeholder="검색어 입력..." />
+
+        <button id="search-button">검색</button>
+    
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>카테고리</th>
+                <th>브랜드</th>
+                <th>상품명</th>
+                <th>가격</th>
+            </tr>
+        </thead>
+        <ul>
+            <tbody id="product-table-body">
+            <!-- 자바스크립트로 상품 목록이 렌더링됨 -->
+            
+        </tbody>
+
+        </ul>
+            </table>
+
+    <script>
+        fetch('/products-data')
+            .then(response => response.json())
+            .then(data => {
+                const tbody = document.getElementById('product-table-body');
+                data.forEach(product => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${product.category}</td>
+                        <td>${product.brand}</td>
+                        <td>${product.product}</td>
+                        <td>${parseInt(product.price).toLocaleString()}원</td>
+                    `;
+                    tbody.appendChild(row);
+                });
+            })
+            .catch(error => {
+                console.error('상품 불러오기 실패:', error);
+            });
+
+        const select = document.getElementById("category-select");
+        const list = document.getElementById("article-list");
+
+        select.addEventListener("change", () => {
+            const category = select.value;
+            fetch(`/api/articles?category=${category}`)
+                .then(res => res.json())
+                .then(data => {
+                    list.innerHTML = "";
+                    data.forEach(article => {
+                        const li = document.createElement("li");
+                        li.textContent = article.title;
+                        list.appendChild(li);
+                        });
+            });
+        });
+        
+
+
+    </script>
+</body>
+</html>

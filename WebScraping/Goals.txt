@@ -1,0 +1,8 @@
+import requests // html사이트 가져오기
+robots.txt // 크롤링 채반
+from bs4 import BeautifulSoup // WebScrapping Library
+User Argent // request header의 종류 중 하나인데, 요청하는 쪽의  식별 정보를 담고 있다고 이해하면 된다.
+
+=========
+oz코딩스쿨
+=========

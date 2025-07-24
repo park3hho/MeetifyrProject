@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>사용자 정보 입력</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f8ff;
+      padding: 40px;
+    }
+    .info-box {
+      background: white;
+      border: 2px solid #ccc;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 400px;
+      margin: auto;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+    #result {
+      margin-top: 20px;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="info-box">
+    <h2>사용자 정보 입력</h2>
+    <div id="result">정보를 입력 중입니다...</div>
+  </div>
+
+  <script>
+    // 문자열 입력 받기 (prompt 사용)
+    const name = prompt("이름을 입력하세요:");
+    const age = prompt("나이를 입력하세요:");
+    const hobby = prompt("취미를 입력하세요:");
+
+    // 자료형 확인 및 콘솔 출력
+    console.log("이름:", name, typeof name);
+    console.log("나이:", age, typeof age);
+    console.log("취미:", hobby, typeof hobby);
+
+    // 템플릿 리터럴로 HTML에 출력
+    let resultBox = document.getElementById("result");
+
+    resultBox.innerHTML = `
+      <strong>입력한 정보:</strong><br>
+      이름: ${name || "이름 없음"}<br>
+      나이: ${age || "나이 미입력"}<br>
+      취미: ${hobby || "취미 없음"}
+    `;
+  </script>
+
+</body>
+</html>

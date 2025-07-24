@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #HPbar {
+        -webkit-appearance: none;
+        width: 300px;
+        height: 25px;
+        border-radius: 12px;
+        background: linear-gradient(to right, red 100%, #eee 0%);
+        outline: none;
+        margin-bottom: 10px;
+        transition: background 0.3s;
+    }
+
+    #HPbar::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        background: #fff;
+        border: 2px solid #333;
+        cursor: pointer;
+    }
+
+    #HPbar::-moz-range-thumb {
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        background: #fff;
+        border: 2px solid #333;
+        cursor: pointer;
+    }
+</style>
+<body>
+    <div>
+        <p>괴물 잡기 레츠고!</p>
+        <input id="HPbar" type="range" min="0" max="100" value="100">
+        <button onclick="attackMonster()">공격</button>
+        <div id="consoles"></div>
+    </div>
+</body>
+<script src="main.js"></script>
+</html>

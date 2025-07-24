@@ -1,0 +1,49 @@
+GIT-GUI: SourceTree
+
+
+기본 명령어
+
+    git remote add origin (원격 저장소 주소)
+    git branch -M main
+    git push -u origin main
+    git remote
+    git remote -v
+    git remote remove # 원격 지우기 (github repository가 지워지는 것이 아니라 로컬 프로젝트와의 연결만 삭제)
+
+    git init -y
+    git status
+    git add .
+    git commit -m "comment"
+    git push
+
+    git pull
+
+최초 설정
+    git config --global user.name "username"
+    git config --global user.email "username@gmail.com"
+
+기본 브랜치 명 변경
+    git config --global init.defaultBranch main
+    git config --global init.defaultBranch
+
+브랜치
+    git branch (신규 브랜치 명)
+    git branch     -- 브랜치 목록 확인
+    git switch (브랜치 명)    -- 다른 브랜치로 이동
+    git switch -c (신규 브랜치 명)    -- 브랜치 생성과 이동을 동시에 하기
+    git branch -d (삭제할 브랜치 명)      --  브랜치 삭제하기
+                                        --  지워질 브랜치에만 있는 내용의 커밋이 있을 경우
+                                        --  (=다른 브랜치로 가져오지 않은 내용이 있는 경우) 
+                                        --  -d 대신 -D로 강제 삭제
+    git branch -m (기존 브랜치 명) (신규 브랜치 명)    -- 브랜치 이름 변경
+    git log --al --decorate --oneline --graph     --  여러 브랜치의 내역을 한번에 보기
+
+    git switch main      -- 합쳐져서 주요 대상이 될 브랜치로 이동
+    git merge add-coach    -- merge는 reset으로 되돌리기가 가능함. merge하기 전 해당 브랜치의 마지막 시점으로 reset
+    git branch -d add-coach    -- 병합된 브랜치는 삭제
+
+
+===========
+oz코딩스쿨
+https://gin-girin-grim.tistory.com/10
+===========

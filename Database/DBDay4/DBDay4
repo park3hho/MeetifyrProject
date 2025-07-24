@@ -1,0 +1,180 @@
+- 초급
+    
+    (1) **`customers`** 테이블에 새 고객을 추가하세요.
+    
+    (2) **`products`** 테이블에 새 제품을 추가하세요.
+    
+    (3) **`employees`** 테이블에 새 직원을 추가하세요.
+    
+    (4) **`offices`** 테이블에 새 사무실을 추가하세요.
+    
+    (5) **`orders`** 테이블에 새 주문을 추가하세요.
+    
+    (6) **`orderdetails`** 테이블에 주문 상세 정보를 추가하세요.
+    
+    (7) **`payments`** 테이블에 지불 정보를 추가하세요.
+    
+    (8) **`productlines`** 테이블에 제품 라인을 추가하세요.
+    
+    (9) **`customers`** 테이블에 다른 지역의 고객을 추가하세요.
+    
+    (10) **`products`** 테이블에 다른 카테고리의 제품을 추가하세요.
+    
+- 중급
+    
+    (1) **`customers`** 테이블에 여러 고객을 한 번에 추가하세요.
+    
+    (2) **`products`** 테이블에 여러 제품을 한 번에 추가하세요.
+    
+    (3) **`employees`** 테이블에 여러 직원을 한 번에 추가하세요.
+    
+    (4) **`orders`**와 **`orderdetails`**에 연결된 주문을 한 번에 추가하세요.
+    
+    (5)**`payments`** 테이블에 여러 지불 정보를 한 번에 추가하세요.
+    
+    (6) **`customers`** 테이블에 고객을 추가하고 바로 주문을 추가하세요.
+    
+    (7) **`employees`** 테이블에 직원을 추가하고 바로 직급을 할당하세요.
+    
+    (8) **`products`** 테이블에 제품을 추가하고 바로 재고를 업데이트하세요.
+    
+    (9) **`offices`** 테이블에 새 사무실을 추가하고 바로 직원을 할당하세요.
+    
+    (10) **`productlines`** 테이블에 제품 라인을 추가하고 바로 여러 제품을 추가하세요.
+    
+- 고급
+    
+    (1) **`customers`** 테이블에 새 고객을 추가하고 바로 주문을 추가하세요.
+    
+    (2) **`employees`** 테이블에 새 직원을 추가하고 바로 그들의 매니저를 업데이트하세요.
+    
+    (3) **`products`** 테이블에 새 제품을 추가하고 바로 그 제품에 대한 주문을 추가하세요.
+    
+    (4) **`orders`** 테이블에 새 주문을 추가하고 바로 지불 정보를 추가하세요.
+    
+    (5)**`orderdetails`** 테이블에 주문 상세 정보를 추가하고 바로 관련 제품의 재고를 감소시키세요.
+
+-- 고객 테이블
+CREATE TABLE customers (
+    customerNumber INT PRIMARY KEY,
+    customerName VARCHAR(100),
+    city VARCHAR(50),
+    country VARCHAR(50)
+);
+
+-- 제품 라인
+CREATE TABLE productlines (
+    productLine VARCHAR(50) PRIMARY KEY,
+    textDescription TEXT
+);
+
+-- 제품 테이블
+CREATE TABLE products (
+    productCode VARCHAR(20) PRIMARY KEY,
+    productName VARCHAR(100),
+    productLine VARCHAR(50),
+    quantityInStock INT,
+    buyPrice DECIMAL(10, 2),
+    FOREIGN KEY (productLine) REFERENCES productlines(productLine)
+);
+
+-- 직원 테이블
+CREATE TABLE employees (
+    employeeNumber INT PRIMARY KEY,
+    lastName VARCHAR(50),
+    firstName VARCHAR(50),
+    jobTitle VARCHAR(50)
+);
+
+-- 사무실 테이블
+CREATE TABLE offices (
+    officeCode VARCHAR(10) PRIMARY KEY,
+    city VARCHAR(50),
+    country VARCHAR(50)
+);
+
+-- 주문 테이블
+CREATE TABLE orders (
+    orderNumber INT PRIMARY KEY,
+    orderDate DATE,
+    requiredDate DATE,
+    status VARCHAR(50),
+    customerNumber INT,
+    FOREIGN KEY (customerNumber) REFERENCES customers(customerNumber)
+);
+
+-- 주문 상세 테이블
+CREATE TABLE orderdetails (
+    orderNumber INT,
+    productCode VARCHAR(20),
+    quantityOrdered INT,
+    priceEach DECIMAL(10, 2),
+    orderLineNumber INT,
+    PRIMARY KEY (orderNumber, productCode),
+    FOREIGN KEY (orderNumber) REFERENCES orders(orderNumber),
+    FOREIGN KEY (productCode) REFERENCES products(productCode)
+);
+
+-- 결제 테이블
+CREATE TABLE payments (
+    customerNumber INT,
+    checkNumber VARCHAR(50),
+    paymentDate DATE,
+    amount DECIMAL(10, 2),
+    PRIMARY KEY (customerNumber, checkNumber),
+    FOREIGN KEY (customerNumber) REFERENCES customers(customerNumber)
+);
+
+
+START TRANSACTION;
+
+-- (초급 1) 새 고객 추가
+INSERT INTO customers (customerNumber, customerName, city, country)
+VALUES (501, '찬호상회', 'Seoul', 'South Korea');
+
+-- (초급 2) 새 제품 추가
+INSERT INTO products (productCode, productName, productLine, quantityInStock, buyPrice)
+VALUES ('S1001', '스마트쿠션', 'Office', 50, 12.99);
+
+-- (초급 3) 새 직원 추가
+INSERT INTO employees (employeeNumber, lastName, firstName, jobTitle)
+VALUES (3001, 'Park', 'Chanho', 'Sales Rep');
+
+-- (초급 4) 새 사무실 추가
+INSERT INTO offices (officeCode, city, country)
+VALUES ('9', 'Busan', 'South Korea');
+
+-- (초급 5) 새 주문 추가
+INSERT INTO orders (orderNumber, orderDate, requiredDate, status, customerNumber)
+VALUES (1001, '2025-04-28', '2025-05-05', 'In Process', 501);
+
+-- (초급 6) 주문 상세 정보 추가
+INSERT INTO orderdetails (orderNumber, productCode, quantityOrdered, priceEach, orderLineNumber)
+VALUES (1001, 'S1001', 5, 13.99, 1);
+
+-- (초급 7) 지불 정보 추가
+INSERT INTO payments (customerNumber, checkNumber, paymentDate, amount)
+VALUES (501, 'CHK123456', '2025-04-28', 69.95);
+
+-- (초급 8) 제품 라인 추가
+INSERT INTO productlines (productLine, textDescription)
+VALUES ('EcoOffice', '환경 친화적 사무용품');
+
+-- (중급 1) 여러 고객 추가
+INSERT INTO customers (customerNumber, customerName, city, country) VALUES
+(502, '하늘상점', 'Incheon', 'South Korea'),
+(503, '그린상회', 'Daejeon', 'South Korea');
+
+-- (중급 4) 주문과 상세를 연결해 추가
+INSERT INTO orders (orderNumber, orderDate, requiredDate, status, customerNumber)
+VALUES (1002, '2025-04-28', '2025-05-10', 'In Process', 502);
+
+INSERT INTO orderdetails (orderNumber, productCode, quantityOrdered, priceEach, orderLineNumber)
+VALUES (1002, 'S1001', 2, 13.99, 1);
+
+-- (고급 5) 주문 상세 후 재고 감소
+UPDATE products
+SET quantityInStock = quantityInStock - 2
+WHERE productCode = 'S1001';
+
+COMMIT;

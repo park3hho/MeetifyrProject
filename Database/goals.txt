@@ -1,0 +1,64 @@
+1. 일반적인 쿼리문
+    SELECT
+        SELECT * FROM users;
+        SELECT name, email FROM users;    -- 특정 컬럼만
+        SELECT * FROM users WHERE age >= 20;    -- 조건 조회
+        SELECT * FROM users ORDER BY created_at DESC;    -- 정렬
+        SELECT * FROM users LIMIT 10;    -- 상위 n개
+    INSERT 
+        INSERT INTO users (name, email, age)
+        VALUES ('홍길동', 'hong@example.com', 25);
+    UPDATE
+        UPDATE users
+        SET age = 26
+        WHERE email = 'hong@example.com';
+
+    DELETE
+        DELETE FROM users
+        WHERE id = 5;
+
+    CREATE
+        CREATE TABLE users (
+            id INT AUTO_INCREMENT PRIMARY KEY,
+            name VARCHAR(100),
+            email VARCHAR(100) UNIQUE,
+            age INT,
+            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+        );
+
+    COUNT AVG SUM
+        SELECT COUNT(*) FROM users;
+        SELECT AVG(age) FROM users;        -- 평균 나이
+        SELECT SUM(age) FROM users;        -- 나이 총합
+        SELECT AVG(age) FROM users WHERE age >= 20;        -- 조건 있는 평균
+
+    GROUP BY
+        SELECT age, COUNT(*) 
+        FROM users
+        GROUP BY age;
+
+    JOIN
+        SELECT u.name, o.order_date
+        FROM users u
+        JOIN orders o ON u.id = o.user_id;
+
+2. MySQL
+    RDBMS
+    TABLE
+    Strict Schema
+    Structured Query Language
+    Scale-Up
+    Strong JOIN
+
+3. MongoDB
+    NoSQL
+    Collection, Document
+    Flex Schema
+    Mongo Query Language (JSON)
+    Scale-out, sharding
+    Weak JOIN
+
+=========
+oz코딩스쿨
+그림으로 배우는 Database
+=========

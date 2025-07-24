@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+</head>
+<body>
+    <h1>
+        <!-- data.user 불러오기 -->
+        Hi {{ user }}
+    </h1>
+    <!-- python if 문 사용 불러오기 -->
+    {%if is_admin %}
+        <p>You Have privileged.</p>
+    {% else %}
+    <p>You do not have admin</p>
+    {% endif %}
+    <!-- 닫아줘야함. -->
+    
+
+
+    {% for item in items %}
+    <li>{{ item }}</li>
+    {% endfor %}
+</body>
+</html>
